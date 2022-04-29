@@ -12,9 +12,9 @@ const App = () => (
     <div>
       <h2>
         My first Apollo app{" "}
-        <span role="img" aria-label="Rocket">
+        {/* <span role="img" aria-label="Rocket">
           🚀
-        </span>
+        </span> */}
       </h2>
     </div>
   </ApolloProvider>
