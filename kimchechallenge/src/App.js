@@ -1,27 +1,20 @@
 import React, { useState } from "react";
 import "./App.css";
-
 import { gql, useQuery } from "@apollo/client";
-const GET_COUNTRIES = gql`
+import ByContinent from "./Components/byContinent";
+import { ByLanguages } from "./Components/byLanguage";
+
+const GET_LANGUAGES = gql`
   query {
-    continents {
+    languages {
       name
-      countries {
-        name
-      }
     }
   }
 `;
 const App = () => {
-  const { data, error, loading } = useQuery(GET_COUNTRIES);
-  const [filter, setFilter] = useState(true);
-  console.log(data);
-  // const Continent= render(){ return(<div>
-  //         <p>Country List by Continent</p>
-  //         {data.continents.map((e) => (
-  //           <ul key={e.name}>{e.name}</ul>
-  //         ))}</div>)
-  // };
+  const { data, error, loading } = useQuery(GET_LANGUAGES);
+  const [filter, setFilter] = useState(false);
+  // console.log(data);
   return (
     <div>
       <h1>Country Search</h1>
@@ -31,13 +24,11 @@ const App = () => {
       <button>Language</button>
       {loading ? (
         <p>Loading Countries</p>
+      ) : filter === true ? (
+        // <p>papitas</p>
+        <ByContinent />
       ) : (
-        <>
-          <p>Country List by Continent</p>
-          {data.continents.map((e) => (
-            <ul key={e.name}>{e.name}</ul>
-          ))}
-        </>
+        <ByLanguages datita={data.languages} />
       )}
       {/* {filter === true ? <div>wd</div> : <div>batatas</div>} */}
     </div>

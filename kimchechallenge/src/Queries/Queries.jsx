@@ -1,18 +1,45 @@
-// import { gql } from "apollo-boost";
+import { gql } from "apollo-boost";
 
-// const get_Countries = gql`
-//   {
-//     continents {
-//       name
-//     }
-//   }
-// `;
-// const get_Languages = gql`
-//   {
-//     languajes {
-//       name
-//     }
-//   }
-// `;
+export const GET_CONTINENTS = gql`
+  query {
+    continents {
+      name
+      code
+      countries {
+        name
+        code
+        capital
+        emoji
+        languages {
+          name
+        }
+      }
+    }
+  }
+`;
+export const GET_COUNTRIES = gql`
+  query {
+    countries {
+      name
+      code
+      capital
+      emoji
+      continent {
+        name
+      }
+      languages {
+        name
+        code
+      }
+    }
+  }
+`;
+export const GET_LANGUAGES = gql`
+  query {
+    languages {
+      name
+    }
+  }
+`;
 
-// export default { get_Countries, get_Languages };
+// export { GET_CONTINENTS, GET_COUNTRIES, GET_LANGUAGES };
