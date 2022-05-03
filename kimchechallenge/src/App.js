@@ -4,7 +4,7 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 
 const client = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io",
+  uri: "https://countries.trevorblades.com/",
 });
 
 const App = () => (
@@ -12,9 +12,9 @@ const App = () => (
     <div>
       <h2>
         My first Apollo app{" "}
-        {/* <span role="img" aria-label="Rocket">
+        <span role="img" aria-label="Rocket">
           🚀
-        </span> */}
+        </span>
       </h2>
     </div>
   </ApolloProvider>
