@@ -1,7 +1,7 @@
 # Desafío para Software Engineers
 
-Nombre postulante: [Ivan Passalia]
-Link a la app en producción: [LINK DEL DEPLOY]
+Nombre postulante: Ivan Passalia
+Link a la app en producción: [LINK DEL DEPLOY](https://62752b216849360a52929a41--sensational-beignet-c62d0f.netlify.app/)
 
 ## Instrucciones
 
