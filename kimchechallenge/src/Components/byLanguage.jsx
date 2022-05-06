@@ -1,47 +1,29 @@
 import React from "react";
 
-import { gql, useQuery } from "@apollo/client";
-import { GET_COUNTRIES } from "../Queries/Queries";
+import { useQuery } from "@apollo/client";
+import { GET_LANGUAGES } from "../Queries/Queries";
 
 export const ByLanguages = ({ datita }) => {
-  const { data, error, loading } = useQuery(GET_COUNTRIES);
-  //   console.log(datita);
+  const { data, error, loading } = useQuery(GET_LANGUAGES);
+  // console.log(datita);
 
-  if (data === null || data === undefined) {
-    return <div></div>;
+  if (data === null || datita === undefined) {
+    return <div> Waiting for keyswords...</div>;
   } else {
-    // let Idioma = { lan: "", countries: [] };
-    // let Idioma = { lan:{name: "", countries: [] },lan:{name: "", countries: [] }};
     return (
       <div>
         <p>Country List by Language</p>
-        {
-          (console.log(data.countries),
-          datita.map((l) => (
-            <ul key={l.code}>
-              <h4>{l.name}</h4>
-              {
-                data.countries ? (
-                  data.countries
-                    .filter((e) =>
-                      e.languages.map((lan) => {
-                        if (lan.name === l.name) {
-                          console.log(e.code, lan.code);
-                        }
-                      })
-                    )
-                    .map((c) => <ul>{c.name}</ul>)
-                ) : (
-                  <p>no esta</p>
-                )
-                //   l.name === c.languages ? <p>{c.name}</p> : <p></p>
-              }
-            </ul>
-          )))
-        }
+        {datita.map((c) => (
+          <ul key={c.name}>
+            <span role="img" aria-label="arrow">
+              {c.flag}
+            </span>
+            <h2>{c.name}</h2>
+            <h4>{c.capital}</h4>
+            <h4>{c.currency}</h4>
+          </ul>
+        ))}
       </div>
     );
   }
 };
-
-// export default ByLanguages
