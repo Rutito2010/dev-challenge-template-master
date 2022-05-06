@@ -30,36 +30,51 @@ const App = () => {
       country.name.includes(keyword)
     );
     let countries = [];
-    for (let i = 0; i < datita2.length; i++) {
-      console.log(datita2[i].emojiU);
-      let flag = datita2[i].emojiU.replace(
-        /\\u[0-9a-fA-F]{4}/g,
-        function (a, b) {
-          var charcode = parseInt(b, 16);
-          return String.fromCharCode(charcode);
-        }
-      );
 
+    for (let i = 0; i < datita2.length; i++) {
       countries.push({
         name: datita2[i].name,
         continent: datita2[i].continent.name,
         languages: datita2[i].languages.map((e) => e.name),
         capital: datita2[i].capital,
         flag: datita2[i].emoji,
-        // flag2: datita2[i].emojiU,
-        // flag3: flag,
         currency: datita2[i].currency,
         code: datita2[i].code,
       });
     }
-
-    let oContinent = _.keyBy(countries, "continent");
-    setByContintent(oContinent);
-    // console.log(oContinent);
-
-    let oLanguage = _.castArray(_.keyBy(countries, "languages"));
-    setByLanguage(oLanguage);
-    // console.log(oLanguage);
+    let language = [];
+    for (let i = 0; i < countries.length; i++) {
+      for (let j = 0; j < countries[i].languages.length; j++)
+        language.push(countries[i].languages[j]);
+      // console.log(languageList);
+    }
+    let languageList = _.uniq(language);
+    let lanAux = [];
+    for (let i = 0; i < languageList.length; i++)
+      lanAux.push({ name: languageList[i], countries: [] });
+    for (let i = 0; i < lanAux.length; i++) {
+      for (let j = 0; j < countries.length; j++) {
+        if (countries[j].languages.includes(lanAux[i].name))
+          lanAux[i].countries.push(countries[j]);
+      }
+    }
+    let continents = [];
+    for (let i = 0; i < countries.length; i++) {
+      continents.push(countries[i].continent);
+    }
+    let continentList = _.uniq(continents);
+    let contAux = [];
+    for (let i = 0; i < continentList.length; i++)
+      contAux.push({ name: continentList[i], countries: [] });
+    for (let i = 0; i < contAux.length; i++) {
+      for (let j = 0; j < countries.length; j++) {
+        if (countries[j].continent.includes(contAux[i].name))
+          contAux[i].countries.push(countries[j]);
+      }
+    }
+    console.log(contAux);
+    setByLanguage(lanAux);
+    setByContintent(contAux);
     setFilteredCountries(countries);
 
     setInput(keyword);
@@ -102,9 +117,9 @@ const App = () => {
       {loading ? (
         <p>Loading Countries</p>
       ) : filter === true ? (
-        <ByContinent datita={filteredCountries} />
+        <ByContinent datita={orderByContintent} />
       ) : (
-        <ByLanguages datita={filteredCountries} />
+        <ByLanguages datita={orderByLanguage} />
       )}
     </div>
   );

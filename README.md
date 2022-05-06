@@ -1,6 +1,6 @@
 # Desafío para Software Engineers
 
-Nombre postulante: [TU NOMBRE]
+Nombre postulante: [Ivan Passalia]
 Link a la app en producción: [LINK DEL DEPLOY]
 
 ## Instrucciones

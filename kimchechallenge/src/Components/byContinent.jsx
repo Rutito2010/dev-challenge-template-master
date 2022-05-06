@@ -21,6 +21,7 @@ const ByContinent = ({ datita }) => {
             <h2>{c.name}</h2>
             <h4>{c.capital}</h4>
             <h4>{c.currency}</h4>
+            {/* <h4>{c.languages.join(" - ")}</h4> */}
           </ul>
         ))}
       </div>
