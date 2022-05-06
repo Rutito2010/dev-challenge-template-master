@@ -1,0 +1,27 @@
+.Cards {
+  padding-left: 10px;
+  display: inline-block;
+  justify-content: space-between;
+  height: 275px;
+  width: 360px;
+  border: 2px solid rgb(116, 114, 114);
+  border-radius: 25px;
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  overflow: auto;
+}
+.flag {
+  height: 40px;
+  width: 60px;
+}
+.cardTilte {
+  display: inline-block;
+}
+ul {
+  margin-left: -15px;
+}
+.info {
+  margin-top: -10px;
+}
