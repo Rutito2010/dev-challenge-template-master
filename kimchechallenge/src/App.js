@@ -88,31 +88,40 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>Country Search</h1>
-      <h4>Introduce your country</h4>
-      <input
-        placeholder="Introduce al menos dos (2) caracteres para iniciar la busqueda..."
-        value={input}
-        onChange={(e) => {
-          handleChange(e);
-        }}
-      />
-      <h2>Group by :</h2>
-      <button
-        onClick={(e) => {
-          handleContinent(e);
-        }}
-      >
-        Continent
-      </button>
-      <button
-        onClick={(e) => {
-          handleLanguage(e);
-        }}
-      >
-        Language
-      </button>
+    <div className="container">
+      <h1 className="Title">Country Search</h1>
+      <h4 className="subtitle">Introduce your country</h4>
+      <div className="Searchbar">
+        <label>🔎</label>
+        <input
+          placeholder="Write something to start the search..."
+          value={input}
+          onChange={(e) => {
+            handleChange(e);
+          }}
+        />
+      </div>
+      <div className="order">
+        <h2>Group by :</h2>
+        <label className="buttons">
+          <button
+            className={filter === true ? "filter" : "filter-continent"}
+            onClick={(e) => {
+              handleContinent(e);
+            }}
+          >
+            Continent
+          </button>
+          <button
+            className={filter === false ? "filter" : "filter-continent"}
+            onClick={(e) => {
+              handleLanguage(e);
+            }}
+          >
+            Language
+          </button>
+        </label>
+      </div>
       {loading || error ? (
         <p>Loading Countries</p>
       ) : filter === true ? (
