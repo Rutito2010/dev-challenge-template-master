@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { useQuery } from "@apollo/client";
 import _ from "lodash";
@@ -9,11 +9,9 @@ import { GET_COUNTRIES } from "./Queries/Queries";
 const App = () => {
   const { data, error, loading } = useQuery(GET_COUNTRIES);
 
-  const [filter, setFilter] = useState(false);
+  const [filter, setFilter] = useState(true);
 
   const [input, setInput] = useState("");
-
-  const [filteredCountries, setFilteredCountries] = useState();
 
   const [orderByContintent, setByContintent] = useState();
 
@@ -50,14 +48,16 @@ const App = () => {
     }
     let languageList = _.uniq(language);
     let lanAux = [];
-    for (let i = 0; i < languageList.length; i++)
+    for (let i = 0; i < languageList.length; i++) {
       lanAux.push({ name: languageList[i], countries: [] });
+    }
     for (let i = 0; i < lanAux.length; i++) {
       for (let j = 0; j < countries.length; j++) {
         if (countries[j].languages.includes(lanAux[i].name))
           lanAux[i].countries.push(countries[j]);
       }
     }
+
     let continents = [];
     for (let i = 0; i < countries.length; i++) {
       continents.push(countries[i].continent);
@@ -75,7 +75,6 @@ const App = () => {
     console.log(contAux);
     setByLanguage(lanAux);
     setByContintent(contAux);
-    setFilteredCountries(countries);
 
     setInput(keyword);
   };
@@ -114,7 +113,7 @@ const App = () => {
       >
         Language
       </button>
-      {loading ? (
+      {loading || error ? (
         <p>Loading Countries</p>
       ) : filter === true ? (
         <ByContinent datita={orderByContintent} />
