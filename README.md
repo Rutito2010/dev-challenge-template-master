@@ -5,6 +5,12 @@ Link a la app en producción: [LINK DEL DEPLOY](
 
 https://main--sensational-beignet-c62d0f.netlify.app/)
 
+## Respuesta a la pregunta efectuada junto con la propuesta del desafio
+
+Si hablamos de la capacidad de lograr una manipulacion en el backend de dicha escuela y poder generar todos los pedidos y relaciones necesarias, sumaria la efectividad de una base de datos relacionales, a la tecnologia de graphql, a su vez poder renderizar la infomacion justa con pedidos minuciosos y efectuar la mayor cantidad de subdivisones posibles en el front, para que en el caso
+de ser necesario no se requiera mas que el nombre del alumno y una interfaz minima y necesaria para poder constatar las asistencias del alumno como a su vez agregar la nueva informacion.
+En base a mi experiencia limitada y como aun no fui capaz de experimentar con muchas tecnologias ni bases de datos numerosas no podria establecer muy ciertamente la manera mas efectiva, pero lo resumo a la idea de tener el pedido necesario con la informacion justa para cada ocasion aun si requiere una interfaz de usuario simple mientras que sea efectiva.
+
 ## Instrucciones
 
 Debes crear un buscador de países consultando el [siguiente grafo](https://countries.trevorblades.com/). Este código contiene una base para seguir con la aplicación en React y ApolloClient. Queda a disposición tuya cualquier cambio, ya sea de estructura, estilo, etc.

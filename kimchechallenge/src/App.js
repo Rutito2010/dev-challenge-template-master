@@ -19,7 +19,10 @@ const App = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
-
+    //Decidi en funcion de comodidad a la hora de representar los datos de manera rapida y efectiva
+    //tratar de acomodar toda la infomacion una vez inicara el filtrado, trabajar de manera pronta
+    //con la menor cantidad de datos posibles. A falta de poder realizar cambios en un backend la logica
+    // fue aplicada para que el pase de informacion sea la justa y necesaria entre componentes
     function primeraLetraMayus(str) {
       return str.charAt(0).toUpperCase() + str.slice(1);
     }
@@ -44,7 +47,6 @@ const App = () => {
     for (let i = 0; i < countries.length; i++) {
       for (let j = 0; j < countries[i].languages.length; j++)
         language.push(countries[i].languages[j]);
-      // console.log(languageList);
     }
     let languageList = _.uniq(language);
     let lanAux = [];
