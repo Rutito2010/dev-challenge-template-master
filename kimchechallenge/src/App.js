@@ -92,7 +92,9 @@ const App = () => {
       <h1 className="Title">Country Search</h1>
       <h4 className="subtitle">Introduce your country</h4>
       <div className="Searchbar">
-        <label>🔎</label>
+        <span role="img" aria-label="arrow">
+          🔎
+        </span>
         <input
           placeholder="Write something to start the search..."
           value={input}
